@@ -61,27 +61,14 @@
     display:flex;align-items:center;justify-content:space-between;
     padding-top:18px;padding-bottom:18px;
   }
-  .navlinks{
-    display:flex;gap:34px;
-    font-size:0.86rem;font-weight:700;
-    letter-spacing:0.01em;
-  }
-  .navlinks a{position:relative;padding-bottom:4px;opacity:0.78;transition:opacity .25s;}
-  .navlinks a:hover{opacity:1;}
-  .navlinks a::after{
-    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--verde);
-    transition:width .3s ease;border-radius:2px;
-  }
-  .navlinks a:hover::after{width:100%;}
   .nav-cta{
     font-size:0.84rem;font-weight:700;
     background:var(--carvao);color:var(--creme);
-    padding:12px 24px;border-radius:100px;
+    padding:12px 22px;border-radius:10px;
     transition:transform .25s ease, background .25s ease;
     white-space:nowrap;
   }
   .nav-cta:hover{background:var(--verde-forte);transform:translateY(-2px);}
-  @media (max-width:860px){ .navlinks{display:none;} }
 
   /* ---------- hero ---------- */
   .hero{
@@ -109,7 +96,7 @@
   }
   .btn{
     font-size:0.9rem;font-weight:700;
-    padding:16px 28px;border-radius:100px;
+    padding:16px 28px;border-radius:10px;
     display:inline-flex;align-items:center;gap:8px;
     transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, background .3s ease, color .3s ease;
   }
@@ -146,8 +133,11 @@
   @keyframes subeleve{ from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
   @keyframes apareceFoto{ from{opacity:0;transform:scale(1.04);} to{opacity:1;transform:scale(1);} }
 
+  /* ---------- ícones soltos de marca (detalhes discretos) ---------- */
+  .deco{position:absolute;color:var(--verde);pointer-events:none;z-index:0;}
+
   /* ---------- manifesto ---------- */
-  .manifesto{padding:100px 0 110px;}
+  .manifesto{padding:100px 0 110px;position:relative;}
   .manifesto p.grande{
     font-size:clamp(1.6rem,3.1vw,2.35rem);
     line-height:1.48;font-weight:700;max-width:900px;letter-spacing:-0.005em;
@@ -156,16 +146,16 @@
   .manifesto p.grande .forte{color:var(--verde-forte);}
 
   .assinatura{
-    margin-top:48px;display:flex;align-items:center;gap:14px;
-    font-size:0.88rem;font-weight:700;color:var(--carvao);opacity:0.65;
+    margin-top:44px;display:inline-flex;align-items:center;gap:9px;
+    font-size:0.8rem;font-weight:700;color:var(--carvao);opacity:0.68;
+    padding:9px 16px;border:1px solid var(--linha);border-radius:8px;
   }
-  .assinatura .linha{width:36px;height:2px;background:var(--carvao);border-radius:2px;}
+  .assinatura svg{width:14px;height:14px;color:var(--verde-forte);flex-shrink:0;}
 
   /* ---------- porque importa (dark) ---------- */
   .porque{
     background:var(--carvao-fundo);color:var(--creme);
-    padding:110px 0 120px;border-radius:56px;
-    margin:0 20px;
+    padding:100px 0 110px;
   }
   .porque h2{
     font-size:clamp(2rem,3.8vw,2.9rem);font-weight:700;max-width:720px;
@@ -173,7 +163,7 @@
   }
   .porque h2 .marcado{color:var(--verde);}
 
-  .grid-motivos{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(250,249,244,0.1);border-radius:28px;overflow:hidden;}
+  .grid-motivos{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
   @media (max-width:980px){ .grid-motivos{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .grid-motivos{grid-template-columns:1fr;} }
 
@@ -184,7 +174,7 @@
   .motivo p{font-size:0.92rem;line-height:1.6;color:rgba(250,249,244,0.62);}
 
   /* ---------- pilares ---------- */
-  .pilares{padding:130px 0 100px;}
+  .pilares{padding:130px 0 100px;position:relative;}
   .pilares-topo{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:64px;}
   .pilares-topo h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;max-width:600px;line-height:1.18;}
   .pilares-topo .desc{max-width:360px;font-size:0.98rem;line-height:1.65;color:var(--carvao);opacity:0.7;}
@@ -193,13 +183,13 @@
   @media (max-width:920px){ .cards-pilares{grid-template-columns:1fr;} }
 
   .card-pilar{
-    background:var(--branco);border:1px solid var(--linha);border-radius:32px;
+    background:var(--branco);border:1px solid var(--linha);border-radius:14px;
     padding:36px 30px 32px;position:relative;
     transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
   }
   .card-pilar:hover{transform:translateY(-6px);box-shadow:0 26px 40px -24px rgba(60,60,59,0.22);border-color:transparent;}
   .card-pilar .selo{
-    width:52px;height:52px;border-radius:18px;
+    width:52px;height:52px;border-radius:10px;
     display:flex;align-items:center;justify-content:center;margin-bottom:24px;
   }
   .card-pilar .selo svg{width:26px;height:26px;}
@@ -210,14 +200,14 @@
   .card-pilar p{font-size:0.94rem;line-height:1.65;color:var(--carvao);opacity:0.72;}
 
   /* ---------- como funciona ---------- */
-  .como{padding:120px 0;background:var(--verde-tinta);border-radius:56px;margin:0 20px;}
+  .como{padding:110px 0 120px;background:var(--verde-tinta);}
   .como h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;max-width:600px;margin-bottom:72px;line-height:1.18;}
   .passos{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;}
   @media (max-width:920px){ .passos{grid-template-columns:repeat(2,1fr);gap:44px 24px;} }
   @media (max-width:560px){ .passos{grid-template-columns:1fr;gap:38px;} }
 
   .passo .n{
-    width:44px;height:44px;border-radius:14px;background:var(--branco);color:var(--verde-forte);
+    width:44px;height:44px;border-radius:10px;background:var(--branco);color:var(--verde-forte);
     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;
     margin-bottom:22px;
   }
@@ -233,47 +223,21 @@
 
   .lista-beneficios{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
   @media (max-width:760px){ .lista-beneficios{grid-template-columns:1fr;gap:34px;} }
-  .lista-beneficios li{display:flex;flex-direction:column;gap:16px;padding-top:22px;border-top:2px solid var(--linha);}
+  .lista-beneficios li{display:flex;flex-direction:column;gap:16px;}
   .lista-beneficios .marca{width:26px;height:26px;color:var(--verde-forte);flex-shrink:0;}
   .lista-beneficios h5{font-size:1.05rem;font-weight:700;margin-bottom:4px;}
   .lista-beneficios p{font-size:0.9rem;line-height:1.6;color:var(--carvao);opacity:0.68;}
 
-  .placa{
-    background:var(--carvao-fundo);border-radius:36px;padding:44px 36px;color:var(--creme);
-    position:relative;overflow:hidden;
-  }
-  .placa .marca-grande{position:absolute;top:-30px;right:-30px;width:170px;color:rgba(127,197,160,0.14);}
-  .placa .rotulo-placa{font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--verde);opacity:0.9;margin-bottom:16px;}
-  .placa h3{font-size:1.55rem;font-weight:700;line-height:1.32;margin-bottom:24px;max-width:320px;position:relative;}
-  .placa .btn{margin-top:6px;}
-
-  /* ---------- mapa ---------- */
-  .mapa{padding:120px 0;text-align:center;}
-  .mapa h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;max-width:680px;margin:0 auto 20px;line-height:1.2;}
-  .mapa .sub{max-width:480px;margin:0 auto 56px;font-size:1.02rem;line-height:1.62;color:var(--carvao);opacity:0.68;}
-  .contador{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
-  .contador .valor{font-size:clamp(2.2rem,4.6vw,3.1rem);color:var(--verde-forte);font-weight:700;line-height:1;}
-  .contador .legenda{margin-top:10px;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--carvao);opacity:0.55;}
-
   /* ---------- futuro ---------- */
-  .futuro{background:var(--carvao-fundo);color:var(--creme);padding:110px 0;border-radius:56px;margin:0 20px 0;}
+  .futuro{background:var(--carvao-fundo);color:var(--creme);padding:100px 0 110px;}
   .futuro-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
   @media (max-width:920px){ .futuro-grid{grid-template-columns:1fr;gap:38px;} }
   .futuro h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;line-height:1.26;}
   .futuro h2 .marcado{color:var(--verde);}
   .futuro p{font-size:1rem;line-height:1.75;color:rgba(250,249,244,0.72);}
-  .selo-parceria{
-    margin-top:28px;display:inline-flex;align-items:center;gap:12px;
-    border:1px solid rgba(250,249,244,0.28);border-radius:100px;padding:8px 20px 8px 8px;
-    font-size:0.82rem;font-weight:700;
-  }
-  .selo-parceria .bolinha{
-    width:30px;height:30px;border-radius:50%;background:var(--verde);
-    display:flex;align-items:center;justify-content:center;color:var(--carvao-fundo);font-weight:700;font-size:0.76rem;
-  }
 
   /* ---------- cta final ---------- */
-  .cta-final{padding:140px 0 120px;text-align:center;}
+  .cta-final{padding:140px 0 120px;text-align:center;position:relative;}
   .cta-final h2{font-size:clamp(2.2rem,5.4vw,3.8rem);font-weight:700;line-height:1.08;max-width:820px;margin:0 auto 30px;letter-spacing:-0.01em;}
   .cta-final h2 .marcado{color:var(--verde-forte);}
   .cta-final .sub{max-width:460px;margin:0 auto 42px;font-size:1.04rem;color:var(--carvao);opacity:0.68;line-height:1.6;}
@@ -319,13 +283,6 @@
       <path fill="#3C3C3B" d="M494.515,460.522c-15.825.998-29.562-7.654-35.487-22.003-3.606-8.733-3.977-18.091-2.004-27.34,3.453-16.192,16.806-27.393,33.306-28.311,16.696-.929,31.57,9.357,36.011,25.625,2.702,9.898,2.341,20.414-1.334,29.998-4.943,12.889-16.493,21.149-30.492,22.031ZM514.029,437.769c4.906-9.598,5.158-20.757.961-30.631-3.803-8.949-11.832-14.241-21.442-14.801-10.878-.634-20.756,5.087-24.747,15.483-3.849,10.027-3.454,21.497,1.703,30.942,3.912,7.166,10.71,11.959,19.048,12.597,10.644.815,19.796-4.433,24.476-13.59Z"/>
       <path fill="#3C3C3B" d="M82.055,440.037c-.643-8.936,3.856-16.477,11.533-20.533,5.161-2.727,10.665-4.365,16.607-4.859l26.126-2.171c.255-4.292-.373-8.512-2.583-12.181-4.563-7.575-14.798-9.028-23.578-7.705-6.898,1.039-11.919,5.553-14.429,12.204l-10.132-1.989c2.906-9.3,9.986-16.246,19.511-18.632,14.387-3.603,32.663-.602,38.707,13.831,1.902,4.541,2.663,9.199,2.667,14.21l.039,46.591-9.784.051-.284-11.731c-4.736,6.56-11.061,10.874-18.882,12.582-16.049,3.506-34.256-2.138-35.517-19.668ZM136.124,421.431l-24.069,1.897c-10.673.841-20.577,5.581-19.576,16.413.483,5.221,4.199,9.631,9.848,11.161,15.596,4.223,31.112-4.392,33.601-20.156l.195-9.315Z"/>
     </svg>
-    <div class="navlinks">
-      <a href="#porque">Por que importa</a>
-      <a href="#pilares">O time</a>
-      <a href="#como">Como funciona</a>
-      <a href="#empresas">Empresas</a>
-      <a href="#futuro">O projeto</a>
-    </div>
     <a href="#cta" class="nav-cta">Quero adotar</a>
   </nav>
 </header>
@@ -349,11 +306,12 @@
 
 <!-- ================= MANIFESTO ================= -->
 <section class="manifesto wrap reveal">
+  <svg class="deco" viewBox="0 0 200 200" style="width:130px;top:-10px;right:6%;opacity:0.09;transform:rotate(8deg);"><use href="#marca-folha"/></svg>
   <div class="rotulo"><svg class="marca" viewBox="0 0 200 200"><use href="#marca-folha"/></svg>01 · Por que existimos</div>
   <p class="grande">
     Ruas bonitas acontecem quando alguém cuida <span class="forte">todo santo dia</span>, não só na passagem da equipe da prefeitura uma vez por mês. <span class="fraca">Lajeado tem canteiros de sobra esperando por esse alguém.</span> O canteiro+ é o jeito mais simples de ser essa pessoa, sozinho, com os vizinhos ou com a empresa onde você trabalha.
   </p>
-  <div class="assinatura"><div class="linha"></div>canteiro+, projeto independente nascido em Lajeado</div>
+  <div class="assinatura"><svg viewBox="0 0 200 200"><use href="#marca-folha"/></svg>canteiro+ · projeto independente nascido em Lajeado</div>
 </section>
 
 <!-- ================= POR QUE IMPORTA ================= -->
@@ -389,6 +347,7 @@
 
 <!-- ================= PILARES ================= -->
 <section class="pilares wrap" id="pilares">
+  <svg class="deco" viewBox="0 0 200 200" style="width:64px;bottom:14%;left:-2%;opacity:0.16;transform:rotate(-10deg);"><use href="#marca-folha"/></svg>
   <div class="pilares-topo reveal">
     <div>
       <div class="rotulo"><svg class="marca" viewBox="0 0 200 200"><use href="#marca-folha"/></svg>03 · Como o time se forma</div>
@@ -475,12 +434,11 @@
  <div class="wrap">
   <div class="futuro-grid">
     <div class="reveal">
-      <div class="rotulo claro"><svg class="marca" viewBox="0 0 200 200"><use href="#marca-folha"/></svg>06 · Rumo à parceria</div>
-      <h2>Começamos sozinhos <span class="marcado">para chegar mais fortes até a prefeitura.</span></h2>
+      <div class="rotulo claro"><svg class="marca" viewBox="0 0 200 200"><use href="#marca-folha"/></svg>06 · O caminho</div>
+      <h2>Começamos sozinhos, <span class="marcado">de propósito.</span></h2>
     </div>
     <div class="reveal">
       <p>Construímos o canteiro+ de forma independente porque não precisamos esperar para começar a cuidar da nossa rua. Conforme o projeto cresce, a ideia é formalizar uma parceria com a Prefeitura de Lajeado, juntando a mobilização de quem já está adotando canteiros à estrutura e ao alcance que só a gestão pública tem em toda a cidade. Um lado fortalece o outro, nenhum substitui o outro.</p>
-      <div class="selo-parceria"><div class="bolinha">PL</div>Em construção rumo à parceria com a Prefeitura de Lajeado</div>
     </div>
   </div>
  </div>
@@ -488,6 +446,7 @@
 
 <!-- ================= CTA FINAL ================= -->
 <section class="cta-final wrap reveal" id="cta">
+  <svg class="deco" viewBox="0 0 200 200" style="width:44px;top:6%;right:16%;opacity:0.28;transform:rotate(5deg);"><use href="#marca-folha"/></svg>
   <h2>A esquina da sua rua está <span class="marcado">esperando alguém</span> para cuidar dela.</h2>
   <p class="sub">Leva menos tempo do que parece e o resultado fica na paisagem de todo mundo por muito tempo.</p>
   <div class="btns">
@@ -514,7 +473,7 @@
           <path fill="#FAF9F4" d="M494.515,460.522c-15.825.998-29.562-7.654-35.487-22.003-3.606-8.733-3.977-18.091-2.004-27.34,3.453-16.192,16.806-27.393,33.306-28.311,16.696-.929,31.57,9.357,36.011,25.625,2.702,9.898,2.341,20.414-1.334,29.998-4.943,12.889-16.493,21.149-30.492,22.031ZM514.029,437.769c4.906-9.598,5.158-20.757.961-30.631-3.803-8.949-11.832-14.241-21.442-14.801-10.878-.634-20.756,5.087-24.747,15.483-3.849,10.027-3.454,21.497,1.703,30.942,3.912,7.166,10.71,11.959,19.048,12.597,10.644.815,19.796-4.433,24.476-13.59Z"/>
           <path fill="#FAF9F4" d="M82.055,440.037c-.643-8.936,3.856-16.477,11.533-20.533,5.161-2.727,10.665-4.365,16.607-4.859l26.126-2.171c.255-4.292-.373-8.512-2.583-12.181-4.563-7.575-14.798-9.028-23.578-7.705-6.898,1.039-11.919,5.553-14.429,12.204l-10.132-1.989c2.906-9.3,9.986-16.246,19.511-18.632,14.387-3.603,32.663-.602,38.707,13.831,1.902,4.541,2.663,9.199,2.667,14.21l.039,46.591-9.784.051-.284-11.731c-4.736,6.56-11.061,10.874-18.882,12.582-16.049,3.506-34.256-2.138-35.517-19.668ZM136.124,421.431l-24.069,1.897c-10.673.841-20.577,5.581-19.576,16.413.483,5.221,4.199,9.631,9.848,11.161,15.596,4.223,31.112-4.392,33.601-20.156l.195-9.315Z"/>
         </svg>
-        <p>Projeto independente de adoção de canteiros públicos, nascido em Lajeado, construído para virar parceria com a prefeitura.</p>
+        <p>Projeto independente de adoção de canteiros públicos, nascido em Lajeado.</p>
       </div>
       <div class="footer-col">
         <h6>Navegue</h6>
